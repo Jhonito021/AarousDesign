@@ -166,7 +166,7 @@ const siteData = {
     contactInfo: [
         { icon: "fab fa-instagram", text: "@aarous.design" },
         { icon: "fas fa-envelope", text: "contact@aarousdesign.com" },
-        { icon: "fas fa-mobile-alt", text: "+33 7 83 12 45 67" }
+        { icon: "fas fa-mobile-alt", text: "+261 38 38 869 12" }
     ],
 
     // Réseaux sociaux footer
