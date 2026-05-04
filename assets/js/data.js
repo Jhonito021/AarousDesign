@@ -117,7 +117,7 @@ const siteData = {
         { image: "assets/img/vetements5.jpg"},
         { image: "assets/img/painting3.jpg" },
         { image: "assets/img/vetements4.jpg" },
-        { image: "assets/img/painting5.jpg" },
+        { image: "assets/img/painting2.jpg" },
         { image: "assets/img/vetements1.jpg" },
         { image: "assets/img/painting7.jpg" },
         { image: "assets/img/vetements2.jpg" },
