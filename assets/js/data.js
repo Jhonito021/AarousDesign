@@ -121,9 +121,11 @@ const siteData = {
         { image: "assets/img/vetements1.jpg" },
         { image: "assets/img/painting7.jpg" },
         { image: "assets/img/vetements2.jpg" },
+        { image: "assets/img/painting6.jpg" },
         { image: "assets/img/painting9.jpg" },
         { image: "assets/img/vetements3.jpg" },
-        { image: "assets/img/painting11.jpg" }
+        { image: "assets/img/painting11.jpg" },
+        { image: "assets/img/painting10.jpg" },
     ],
 
     // Art Digital - cartes principales
