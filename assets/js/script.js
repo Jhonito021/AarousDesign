@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
             galleryItem.className = 'photo-item';
             galleryItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}">
-                <span>${item.title}</span>
             `;
             customGallery.appendChild(galleryItem);
         });
