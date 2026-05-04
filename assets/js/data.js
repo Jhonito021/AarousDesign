@@ -1,6 +1,8 @@
 // data.js - Toutes les données du site Aarou's Design
 
 const siteData = {
+    // Numéro WhatsApp pour les messages directs
+    whatsappNumber: "383886912", // Numéro français sans le +
     // Statistiques du hero
     stats: [
         { icon: "fas fa-dragon", number: "+120", label: "projets artistiques" },

@@ -843,3 +843,119 @@ body {
         padding: 1.5rem;
     }
 }
+
+/* Ajoutez ces styles à la fin de votre style.css */
+
+/* Bouton WhatsApp direct */
+.whatsapp-direct {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp i {
+    font-size: 1.4rem;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Popup WhatsApp après formulaire */
+.whatsapp-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: slideIn 0.5s ease;
+    font-weight: 500;
+}
+
+.whatsapp-popup i {
+    font-size: 1.5rem;
+}
+
+.whatsapp-popup:hover {
+    transform: scale(1.05);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Bouton WhatsApp flottant permanent (optionnel) */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float a {
+    color: white;
+    font-size: 2rem;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        left: 20px;
+    }
+    .whatsapp-float a {
+        font-size: 1.6rem;
+    }
+    .whatsapp-popup {
+        bottom: 80px;
+        right: 20px;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}

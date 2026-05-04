@@ -119,42 +119,53 @@
     </section>
 
     <!-- SECTION CONTACT -->
-    <section id="contact" class="section contact-section alt-bg">
-        <div class="container contact-wrapper">
-            <div class="contact-info">
-                <i class="fas fa-hand-sparkles contact-big-icon"></i>
-                <h2>Collaborons <br>ensemble ✨</h2>
-                <p>Que vous souhaitiez customiser une paire unique, commander une illustration digitale ou modéliser un asset pour votre jeu, Aarou's Design donne vie à vos idées.</p>
-                <div class="contact-list" id="contactList"></div>
-            </div>
-            <div class="contact-form">
-                <form id="creativeForm">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nom / Prénom" id="name" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email créatif" id="email" required>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-tag"></i>
-                        <select id="projectType">
-                            <option value="art">Art & Dessin</option>
-                            <option value="custom">Customisation</option>
-                            <option value="digital">Art Digital / 3D</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <i class="fas fa-comment-dots"></i>
-                        <textarea rows="3" placeholder="Décrivez votre projet ou vos 3 mots magiques..." id="message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Envoyer mon inspiration</button>
-                    <p class="form-message" id="formFeedback"></p>
-                </form>
+<section id="contact" class="section contact-section alt-bg">
+    <div class="container contact-wrapper">
+        <div class="contact-info">
+            <i class="fas fa-hand-sparkles contact-big-icon"></i>
+            <h2>Collaborons <br>ensemble ✨</h2>
+            <p>Que vous souhaitiez customiser une paire unique, commander une illustration digitale ou modéliser un asset pour votre jeu, Aarou's Design donne vie à vos idées.</p>
+            <div class="contact-list" id="contactList"></div>
+            <!-- Bouton WhatsApp direct -->
+            <div class="whatsapp-direct">
+                <a href="https://wa.me/33783124567?text=Bonjour%20Aarou's%20Design%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services%20!" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Discuter directement sur WhatsApp
+                </a>
             </div>
         </div>
-    </section>
+        <div class="contact-form">
+            <form id="creativeForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nom / Prénom" id="name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email créatif" id="email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" placeholder="Téléphone (optionnel)" id="phone">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-tag"></i>
+                    <select id="projectType">
+                        <option value="art">Art & Dessin</option>
+                        <option value="custom">Customisation</option>
+                        <option value="digital">Art Digital / 3D</option>
+                        <option value="concept">Concept "3 mots"</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-comment-dots"></i>
+                    <textarea rows="3" placeholder="Décrivez votre projet ou vos 3 mots magiques..." id="message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Envoyer mon inspiration</button>
+                <p class="form-message" id="formFeedback"></p>
+            </form>
+        </div>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer class="footer">

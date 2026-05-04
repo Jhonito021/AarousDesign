@@ -1,7 +1,9 @@
-// script.js - Génération dynamique du contenu à partir de data.js
+// script.js - Version avec envoi WhatsApp après formulaire
 
 // Attendre que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // ========== GÉNÉRATION DU CONTENU ==========
     
     // Générer les statistiques du hero
     const heroStats = document.getElementById('heroStats');
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             galleryItem.className = 'photo-item';
             galleryItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}">
-                
+                <span>${item.title}</span>
             `;
             customGallery.appendChild(galleryItem);
         });
@@ -166,7 +168,126 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== INTERACTIVITÉ ==========
+    // ========== BOUTON WHATSAPP FLOTTANT PERMANENT ==========
+    const whatsappFloat = document.createElement('div');
+    whatsappFloat.className = 'whatsapp-float';
+    whatsappFloat.innerHTML = `<a href="https://wa.me/${siteData.whatsappNumber}?text=Bonjour%20Aarou's%20Design%2C%20je%20suis%20intéressé%20par%20vos%20services%20!" target="_blank"><i class="fab fa-whatsapp"></i></a>`;
+    document.body.appendChild(whatsappFloat);
+
+    // ========== FONCTION POUR ENVOYER SUR WHATSAPP ==========
+    function sendToWhatsApp(formData) {
+        const phoneNumber = siteData.whatsappNumber;
+        
+        let projectTypeLabel = "";
+        switch(formData.projectType) {
+            case 'art': projectTypeLabel = "🎨 Art & Dessin"; break;
+            case 'custom': projectTypeLabel = "👟 Customisation"; break;
+            case 'digital': projectTypeLabel = "💻 Art Digital / 3D"; break;
+            case 'concept': projectTypeLabel = "✨ Concept 3 mots"; break;
+            default: projectTypeLabel = formData.projectType;
+        }
+        
+        const message = `🔔 *NOUVELLE INSPIRATION - AAROU'S DESIGN* 🔔
+        
+📝 *Nom* : ${formData.name}
+📧 *Email* : ${formData.email}
+📱 *Téléphone* : ${formData.phone || "Non renseigné"}
+🎯 *Projet* : ${projectTypeLabel}
+💬 *Message* : 
+${formData.message}
+
+---
+✨ Envoyé depuis le site Aarou's Design ✨`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // ========== GESTION DU FORMULAIRE ==========
+    const contactForm = document.getElementById('creativeForm');
+    const feedback = document.getElementById('formFeedback');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone')?.value.trim() || '';
+            const message = document.getElementById('message').value.trim();
+            const projectType = document.getElementById('projectType').value;
+            
+            if (!name || !email || !message) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Merci de remplir tous les champs obligatoires.';
+                feedback.style.color = '#f78ca2';
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                feedback.innerHTML = '<i class="fas fa-envelope"></i> Email invalide.';
+                feedback.style.color = '#f78ca2';
+                return;
+            }
+            
+            // Préparer les données du formulaire
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                projectType: projectType,
+                message: message
+            };
+            
+            // Message de confirmation
+            let confirmationMessage = '';
+            if (projectType === 'concept') {
+                confirmationMessage = '✨ Magnifique choix ! Vos 3 mots vont devenir une illustration unique. ✨';
+            } else {
+                confirmationMessage = 'Merci ' + name + ' ! Votre inspiration a été envoyée. 🎨';
+            }
+            
+            feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + confirmationMessage;
+            feedback.style.color = '#9eff9e';
+            
+            // Afficher une popup pour proposer d'envoyer sur WhatsApp
+            const popup = document.createElement('div');
+            popup.className = 'whatsapp-popup';
+            popup.innerHTML = `
+                <i class="fab fa-whatsapp"></i>
+                <span>Envoyer directement sur WhatsApp ?</span>
+                <i class="fas fa-chevron-right"></i>
+            `;
+            
+            popup.addEventListener('click', () => {
+                sendToWhatsApp(formData);
+                popup.remove();
+            });
+            
+            document.body.appendChild(popup);
+            
+            // Disparaît après 8 secondes
+            setTimeout(() => {
+                if (popup.parentNode) popup.remove();
+            }, 8000);
+            
+            // Optionnel : aussi envoyer une copie dans la console
+            console.log('Formulaire soumis :', formData);
+            
+            // Réinitialiser le formulaire
+            contactForm.reset();
+            
+            // Effacer le message après 5 secondes
+            setTimeout(() => {
+                if (feedback.innerHTML.includes('Merci') || feedback.innerHTML.includes('Magnifique')) {
+                    feedback.innerHTML = '';
+                }
+            }, 5000);
+        });
+    }
+
+    // ========== INTERACTIVITÉ NAVIGATION ==========
     
     // Menu burger
     const hamburger = document.querySelector('.hamburger');
@@ -241,58 +362,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Appliquer animations aux éléments
+    // Appliquer animations
     document.querySelectorAll('.card, .custom-card, .digital-card, .contact-form, .contact-info, .concept-card, .photo-item, .digital-photo-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(25px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-
-    // Gestion du formulaire
-    const contactForm = document.getElementById('creativeForm');
-    const feedback = document.getElementById('formFeedback');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            const projectType = document.getElementById('projectType').value;
-            
-            if (!name || !email || !message) {
-                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Merci de remplir tous les champs.';
-                feedback.style.color = '#f78ca2';
-                return;
-            }
-            
-            if (!email.includes('@') || !email.includes('.')) {
-                feedback.innerHTML = '<i class="fas fa-envelope"></i> Email invalide.';
-                feedback.style.color = '#f78ca2';
-                return;
-            }
-            
-            let confirmationMessage = '';
-            if (projectType === 'concept') {
-                confirmationMessage = '✨ Magnifique choix ! Vos 3 mots vont devenir une illustration unique. Aarou\'s Design vous recontacte très vite ✨';
-            } else {
-                confirmationMessage = 'Merci ' + name + ' ! Aarou\'s Design vous recontactera rapidement pour concrétiser votre projet. 🎨';
-            }
-            
-            console.log('Formulaire envoyé :', { name, email, projectType, message });
-            
-            feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + confirmationMessage;
-            feedback.style.color = '#9eff9e';
-            
-            contactForm.reset();
-            
-            setTimeout(() => {
-                feedback.innerHTML = '';
-            }, 5000);
-        });
-    }
 
     // Effet sur les statistiques
     const stats = document.querySelectorAll('.stat');
@@ -307,6 +383,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Console welcome
-    console.log("%c✨ Aarou's Design ✨ | L'art qui vous ressemble", "color: #f78ca2; font-size: 16px; font-family: monospace;");
-    console.log("%c4 concepts | Photos intégrées | Data centralisée", "color: #b77eff; font-size: 12px");
+    console.log("%c✨ Aarou's Design ✨ | Envoyez vos inspirations directement sur WhatsApp", "color: #25D366; font-size: 16px; font-family: monospace;");
+    console.log("%cFormulaire + WhatsApp intégré | Data centralisée", "color: #b77eff; font-size: 12px");
 });
