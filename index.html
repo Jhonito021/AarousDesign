@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Aarou's Design | Art & Customisation</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-palette"></i>
+                <span class="logo-text">Aarou's <span class="highlight">Design</span></span>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#accueil" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#concepts" class="nav-link"><i class="fas fa-star"></i> Concepts</a></li>
+                    <li><a href="#art-dessin" class="nav-link"><i class="fas fa-paintbrush-fine"></i> Art & Dessin</a></li>
+                    <li><a href="#customisation" class="nav-link"><i class="fas fa-shoe-prints"></i> Customisation</a></li>
+                    <li><a href="#digital" class="nav-link"><i class="fas fa-laptop-code"></i> Art Digital</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-comment"></i> Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION HERO -->
+    <section id="accueil" class="hero">
+        <img src="https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Art studio background" class="hero-bg-image">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Où l'art devient <span class="gradient-text">identité</span></h1>
+                <p>Dessin traditionnel, customisation audacieuse et création digitale immersive. <br> Bienvenue dans l'univers d'Aarou's Design.</p>
+                <div class="hero-buttons">
+                    <a href="#concepts" class="btn btn-primary"><i class="fas fa-magic"></i> Découvrir nos concepts</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-comment"></i> Contact créatif</a>
+                </div>
+            </div>
+            <div class="hero-stats" id="heroStats"></div>
+        </div>
+    </section>
+
+    <!-- SECTION CONCEPTS -->
+    <section id="concepts" class="section concepts-section">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-gem section-icon"></i>
+                <h2>Nos Concepts <span class="wave">✨</span></h2>
+                <p>4 approches uniques pour révéler votre créativité et votre style.</p>
+            </div>
+            <div class="concepts-grid" id="conceptsGrid"></div>
+            <div class="concepts-cta">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-message"></i> Je veux concrétiser mon idée</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ART & DESSIN -->
+    <section id="art-dessin" class="section art-section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-paintbrush-fine section-icon"></i>
+                <h2>Art & Dessin <span class="wave">🎨</span></h2>
+                <p>Du traditionnel au contemporain — croquis, aquarelle, illustration narrative.</p>
+            </div>
+            <div class="cards-grid" id="artGrid"></div>
+        </div>
+    </section>
+
+    <!-- SECTION CUSTOMISATION -->
+    <section id="customisation" class="section custom-section">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-spray-can-sparkles section-icon"></i>
+                <h2>Customisation <span class="wave">👟👕</span></h2>
+                <p>Rien de standard — chaque pièce devient une œuvre d'art portable.</p>
+            </div>
+            <div class="custom-showcase" id="customShowcase"></div>
+            <div class="custom-photo-gallery">
+                <h3><i class="fas fa-camera"></i> Nos réalisations en images</h3>
+                <div class="photo-grid" id="customGallery"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ART DIGITAL -->
+    <section id="digital" class="section digital-section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <i class="fas fa-microchip section-icon"></i>
+                <h2>Art Digital <span class="wave">🖥️🎮</span></h2>
+                <p>Digital painting, modélisation 3D & game assets — le futur du design.</p>
+            </div>
+            <div class="digital-flex" id="digitalFlex"></div>
+            <div class="digital-showcase-photos" id="digitalGallery"></div>
+            <div class="digital-quote">
+                <i class="fas fa-quote-left"></i> chaque modèle 3D raconte une histoire, chaque pixel est une émotion.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 MOTS (SHOWCASE) -->
+    <section class="section three-words-showcase">
+        <div class="container">
+            <div class="three-words-wrapper" id="threeWordsWrapper"></div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="section contact-section alt-bg">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <i class="fas fa-hand-sparkles contact-big-icon"></i>
+                <h2>Collaborons <br>ensemble ✨</h2>
+                <p>Que vous souhaitiez customiser une paire unique, commander une illustration digitale ou modéliser un asset pour votre jeu, Aarou's Design donne vie à vos idées.</p>
+                <div class="contact-list" id="contactList"></div>
+            </div>
+            <div class="contact-form">
+                <form id="creativeForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Nom / Prénom" id="name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email créatif" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-tag"></i>
+                        <select id="projectType">
+                            <option value="art">Art & Dessin</option>
+                            <option value="custom">Customisation</option>
+                            <option value="digital">Art Digital / 3D</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-comment-dots"></i>
+                        <textarea rows="3" placeholder="Décrivez votre projet ou vos 3 mots magiques..." id="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width"><i class="fas fa-paper-plane"></i> Envoyer mon inspiration</button>
+                    <p class="form-message" id="formFeedback"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <i class="fas fa-palette"></i> Aarou's Design — l'art dans chaque détail
+            </div>
+            <div class="footer-social" id="footerSocial"></div>
+            <div class="footer-copyright">
+                <i class="far fa-copyright"></i> 2026 Aarou's Design — inspiration & création
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
